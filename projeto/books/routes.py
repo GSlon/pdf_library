@@ -17,7 +17,7 @@ def new_book():
     if form.validate_on_submit():
         if form.pdfile.data:
             path = save_book_file(form.pdfile.data)
-            tags = get_tags(form.pdfile.name)
+            tags = get_tags(form.pdfile.data)
             book = Book(title=form.title.data, author=form.author.data, path=path, tags=tags, user=current_user)
             db.session.add(book)
             db.session.commit()
