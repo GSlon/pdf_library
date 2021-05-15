@@ -1,0 +1,46 @@
+<!-- main layout (base form) -->
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container caixa-principal">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+	            <ul class="list-group skull text-center mt-4">
+		            <a class="list-group-item" href="{{ url_for('main.home') }}"><strong>Home</strong></a>
+		            {% if current_user.is_authenticated %}
+			            <a class="list-group-item" href="{{ url_for('books.new_book') }}"><strong>New Book</strong></a>
+			            <a class="list-group-item" href="{{ url_for('users.account') }}"><strong>Account</strong></a>
+			            <a class="list-group-item" href="{{ url_for('users.logout') }}"><strong>Logout</strong></a>
+		            {% else %}
+			            <a class="list-group-item" href="{{ url_for('users.register') }}"><strong>Register</strong></a>
+			            <a class="list-group-item" href="{{ url_for('users.login') }}"><strong>Login</strong></a>
+		            {% endif %}
+	            </ul>
+	            <div class="mb-3 mt-3">
+					{% with messages = get_flashed_messages(with_categories=true) %}
+					  {% if messages %}
+					    {% for category, message in messages %}
+					      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+					        <span>{{ message }}</span> 
+					        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					    {% endfor %}
+					  {% endif %}
+					{% endwith %} 
+				</div>
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
