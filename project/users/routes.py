@@ -1,8 +1,8 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
-from projeto import db, bcrypt
-from projeto.models import User, Book
-from projeto.users.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from project import db, bcrypt
+from project.models import User, Book
+from project.users.forms import RegistrationForm, LoginForm, UpdateAccountForm
 
 users = Blueprint('users', __name__)
 

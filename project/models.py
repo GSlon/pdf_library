@@ -1,4 +1,4 @@
-from projeto import db, login_manager
+from project import db, login_manager
 from flask import current_app
 from datetime import datetime
 from flask_login import UserMixin

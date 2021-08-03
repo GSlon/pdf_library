@@ -1,9 +1,9 @@
 import os
 from flask import render_template, url_for, flash, redirect, Blueprint, current_app, send_file
 from flask_login import current_user, login_required
-from projeto import db
-from projeto.models import Book
-from projeto.books.forms import BookForm
+from project import db
+from project.models import Book
+from project.books.forms import BookForm
 from .tagger import get_tags
 from .utils import save_book_file
 

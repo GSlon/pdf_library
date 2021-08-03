@@ -1,5 +1,5 @@
 from flask import render_template, request, Blueprint, redirect, url_for
-from projeto.models import Book
+from project.models import Book
 from sqlalchemy import or_
 
 main = Blueprint('main', __name__)

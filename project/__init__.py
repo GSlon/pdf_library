@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from projeto.config import Config
+from project.config import Config
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
@@ -20,10 +20,10 @@ def create_app(config_class=Config):
 	bcrypt.init_app(app)
 	login_manager.init_app(app)
 
-	from projeto.users.routes import users
-	from projeto.books.routes import books
-	from projeto.main.routes import main
-	from projeto.errors.handlers import errors
+	from project.users.routes import users
+	from project.books.routes import books
+	from project.main.routes import main
+	from project.errors.handlers import errors
 	app.register_blueprint(users)
 	app.register_blueprint(main)
 	app.register_blueprint(books)
